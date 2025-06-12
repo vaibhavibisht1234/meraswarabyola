@@ -6,224 +6,111 @@
   <title>Happy Birthday Ritik</title>
   <style>
     body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #ffecf2;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
+      font-family: Arial, sans-serif;
+      background-color: #ffecf2;
+      margin: 0;
+      padding: 0;
+    }
 
-.container {
-  margin-top: 100px;
-  position: relative;
-  z-index: 2;
-}
+    .container {
+      margin-top: 80px;
+      text-align: center;
+    }
 
-.pixelated-text {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 20px;
-}
+    .pixelated-text {
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+    }
 
-.password-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-  position: relative;
-  z-index: 3;
-}
+    .password-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 0 10px;
+    }
 
-.heart-box {
-  width: 50px;
-  height: 50px;
-  background-color: pink;
-  border: 2px solid red;
-  clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 50px;
-  caret-color: transparent;
-  border-radius: 8px;
-}
+    .heart-box {
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+      border: 2px solid red;
+      clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      caret-color: transparent;
+    }
 
-.heart-box:focus {
-  outline: none;
-}
+    .heart-box:focus {
+      outline: none;
+    }
 
-.cloud-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 18px;
-  font-family: 'Press Start 2P', cursive;
-  background-color: lightblue;
-  border: 2px solid darkblue;
-  border-radius: 25px;
-  cursor: pointer;
-}
+    #hint {
+      margin-top: 10px;
+      font-size: 14px;
+      color: grey;
+    }
 
-#hint {
-  margin-top: 10px;
-  font-size: 14px;
-  color: grey;
-}
+    #error-message {
+      color: red;
+      font-size: 16px;
+      margin-top: 10px;
+      font-weight: bold;
+      display: none;
+    }
 
-#error-message {
-  color: red;
-  font-size: 18px;
-  margin-top: 10px;
-  font-weight: bold;
-  display: none;
-}
+    .message-screen {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      background-color: #ffecf2;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
 
-.hidden {
-  display: none;
-}
+    .typewriter {
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+      white-space: pre-line;
+      overflow: hidden;
+      border-right: 2px solid black;
+    }
 
-.message-screen {
-  display: none;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #ffecf2;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  position: relative;
-  z-index: 1;
-}
+    .heart {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
+      animation: heartbeat 1s infinite alternate;
+      z-index: 10;
+    }
 
-.typewriter {
-  font-family: 'Courier New', monospace;
-  font-size: 20px;
-  white-space: pre-line;
-  overflow: hidden;
-  border-right: 2px solid black;
-}
+    @keyframes heartbeat {
+      from { transform: scale(1) translateX(-50%); }
+      to { transform: scale(1.2) translateX(-50%); }
+    }
 
-.heart {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: calc(100% + 3cm);
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
-  animation: heartbeat 1s infinite alternate;
-  transition: transform 0.2s;
-}
+    @keyframes bounce {
+      0%, 100% { transform: scale(1) translateX(-50%); }
+      50% { transform: scale(1.5) translateX(-50%); }
+    }
 
-@keyframes heartbeat {
-  from { transform: scale(1); }
-  to { transform: scale(1.2); }
-}
-
-.heart:active {
-  animation: bounce 0.5s ease;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.5); }
-}
+    .heart:active {
+      animation: bounce 0.5s ease;
+    }
   </style>
 </head>
 <body>
-  <div class="container" id="passwordScreen">
-    <p class="pixelated-text">Enter the password</p>
-    <div class="password-container">
-      <input type="password" id="password1" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password2')">
-      <input type="password" id="password2" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password3')">
-      <input type="password" id="password3" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password4')">
-      <input type="password" id="password4" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password5')">
-      <input type="password" id="password5" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password6')">
-      <input type="password" id="password6" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password7')">
-      <input type="password" id="password7" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password8')">
-      <input type="password" id="password8" maxlength="1" class="heart-box" oninput="checkPassword()">
-    </div>
-    <p id="hint">Hint: Anniversary Date</p>
-    <p id="error-message">Incorrect Password!!!</p>
-  </div>
 
-  <div class="message-screen" id="messageScreen">
-    <p class="typewriter" id="typedMessage"></p>
-  </div>
-
-  <div class="heart" id="heart" style="display: block;"></div>
-
-  <script>
-    const message = `🌸💖🎂 Happiest Birthday to You, My Swane!!! 🎂💖🌸
-
-Maine life mai kabhi nahi socha tha ki mujhe kabhi kisi se itna pyaar hoga, jitna mujhe tumse hua hai.  
-1st March, 2025, jab hum officially ek hue the, aur maine tumhe apna pati maan liya tha,  
-wo meri life ka best decision tha, hai aur humesha rahega.
-
-Mai humesha se he apni health, sleep aur overall apna kabhi dhyaan nahi deti thi.
-Maine bas suna tha, ki jab sach mai pyaar hota haina, tab ladki ke chehre par ek alag he glow aata hai.  
-Fir jab maine wo tumhare saath rehkar khud notice kiya, I realized iss baat ki sachaai.
-
-Tumhe shayad pata bhi na ho, but because of you, I have become a better person.
-Someone who wants to live, wants to get married, have kids, work hard, wants to do something.
-After a long time, for the first time, mai khush hu.
-
-Tumhari vajah se esa feel aata hai ki haan, koi hai,
-jo mujhe bahut pyaar karta hai,  
-koi hai jo mujhe apna samajhta hai,  
-koi hai jo mere jeene ki vajah hai.  
-
-Kehne ke liye shabd aaj bhi ye kam he hai,
-kyuki tumhare liye jitna kahu, tum usse kai jyada deserve karte ho.  
-Mai jitna bolu, wo utna he kamm hai.
-I love you soo sooo sooooo much jaanu.
-
-Bahut jyada pyaar karti hu tumse, bahut he jyada
-mera baccha, mera kutchu putchu, mera roshogulla, mera rasmalai, mera gulab jamun.💕🍥🍯🎂
-
-🌟💞 Tum ho meri duniya, meri jaan, meri zindagi ka sabse pyaara hissa. 💞🌟`;
-
-    function typeMessage() {
-      let index = 0;
-      const speed = 35;
-      const typedElement = document.getElementById("typedMessage");
-      function type() {
-        if (index < message.length) {
-          typedElement.innerHTML += message.charAt(index);
-          index++;
-          setTimeout(type, speed);
-        }
-      }
-      type();
-    }
-
-    function moveToNext(current, nextId) {
-      if (current.value.length === 1) {
-        const next = document.getElementById(nextId);
-        if (next) next.focus();
-      }
-    }
-
-    function checkPassword() {
-      let password = '';
-      for (let i = 1; i <= 8; i++) {
-        password += document.getElementById('password' + i).value;
-      }
-      if (password === "01032025") {
-        document.getElementById("passwordScreen").style.display = "none";
-        document.getElementById("messageScreen").style.display = "flex";
-        document.getElementById("heart").style.display = "none";
-        typeMessage();
-      } else {
-        document.getElementById("error-message").style.display = "block";
-        setTimeout(() => {
-          document.getElementById("error-message").style.display = "none";
-        }, 2000);
-      }
-    }
-  </script>
-</body>
-</html>
+  <div class="container" id
