@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Ritik</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       background-color: #ffecf2;
-      overflow-y: auto;
-      overflow-x: hidden;
+      overflow: hidden;
       position: relative;
       margin: 0;
       padding: 0;
@@ -35,7 +33,6 @@
       margin-top: 20px;
       position: relative;
       z-index: 3;
-      flex-wrap: wrap;
     }
 
     .heart-box {
@@ -46,10 +43,11 @@
       clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
       font-size: 24px;
       font-weight: bold;
-      line-height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      padding-top: 2px;
       caret-color: transparent;
     }
 
@@ -88,7 +86,7 @@
 
     .message-screen {
       display: none;
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -96,7 +94,7 @@
       background-color: #ffecf2;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       flex-direction: column;
       padding: 20px;
       box-sizing: border-box;
@@ -105,32 +103,20 @@
 
     .typewriter {
       font-family: 'Courier New', monospace;
-      font-size: 16px;
+      font-size: 20px;
       white-space: pre-line;
       overflow: hidden;
       border-right: 2px solid black;
-      max-width: 90%;
-      text-align: left;
-      line-height: 1.5;
     }
 
     @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
+      from { width: 0; }
+      to { width: 100%; }
     }
 
     @keyframes blink {
-      from,
-      to {
-        border-color: transparent;
-      }
-      50% {
-        border-color: black;
-      }
+      from, to { border-color: transparent; }
+      50% { border-color: black; }
     }
 
     .heart {
@@ -147,12 +133,8 @@
     }
 
     @keyframes heartbeat {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.2);
-      }
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
     }
 
     .heart:active {
@@ -160,13 +142,8 @@
     }
 
     @keyframes bounce {
-      0%,
-      100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.5);
-      }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.5); }
     }
   </style>
 </head>
@@ -174,14 +151,14 @@
   <div class="container" id="passwordScreen">
     <p class="pixelated-text">Enter the password</p>
     <div class="password-container">
-      <input type="password" id="password1" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password2')" />
-      <input type="password" id="password2" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password3')" />
-      <input type="password" id="password3" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password4')" />
-      <input type="password" id="password4" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password5')" />
-      <input type="password" id="password5" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password6')" />
-      <input type="password" id="password6" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password7')" />
-      <input type="password" id="password7" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password8')" />
-      <input type="password" id="password8" maxlength="1" class="heart-box" oninput="checkPassword()" />
+      <input type="password" id="password1" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password2')">
+      <input type="password" id="password2" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password3')">
+      <input type="password" id="password3" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password4')">
+      <input type="password" id="password4" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password5')">
+      <input type="password" id="password5" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password6')">
+      <input type="password" id="password6" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password7')">
+      <input type="password" id="password7" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password8')">
+      <input type="password" id="password8" maxlength="1" class="heart-box" oninput="checkPassword()">
     </div>
     <p id="hint">Hint: Anniversary Date</p>
     <p id="error-message">Incorrect Password!!!</p>
@@ -221,21 +198,27 @@ I love you soo sooo sooooo much jaanu.
 Bahut jyada pyaar karti hu tumse, bahut he jyada
 mera baccha, mera kutchu putchu, mera roshogulla, mera rasmalai, mera gulab jamun.💕🍥🍯🎂
 
-🌟💞 Tum ho meri duniya, meri jaan, meri zindagi ka sabse pyaara hissa. 💞🌟
-`;
+🌟💞 Tum ho meri duniya, meri jaan, meri zindagi ka sabse pyaara hissa. 💞🌟`;
 
     function typeMessage() {
       let index = 0;
       const speed = 35;
-      const typed = document.getElementById("typedMessage");
+      const typedElement = document.getElementById("typedMessage");
       function type() {
         if (index < message.length) {
-          typed.innerHTML += message.charAt(index);
+          typedElement.innerHTML += message.charAt(index);
           index++;
           setTimeout(type, speed);
         }
       }
       type();
+    }
+
+    function moveToNext(current, nextId) {
+      if (current.value.length === 1) {
+        const next = document.getElementById(nextId);
+        if (next) next.focus();
+      }
     }
 
     function checkPassword() {
@@ -252,17 +235,7 @@ mera baccha, mera kutchu putchu, mera roshogulla, mera rasmalai, mera gulab jamu
         document.getElementById("error-message").style.display = "block";
         setTimeout(() => {
           document.getElementById("error-message").style.display = "none";
-          for (let i = 1; i <= 8; i++) {
-            document.getElementById('password' + i).value = '';
-          }
-          document.getElementById('password1').focus();
-        }, 1000);
-      }
-    }
-
-    function moveToNext(current, nextFieldId) {
-      if (current.value.length === 1) {
-        document.getElementById(nextFieldId)?.focus();
+        }, 2000);
       }
     }
   </script>
