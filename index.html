@@ -6,145 +6,131 @@
   <title>Happy Birthday Ritik</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #ffecf2;
-      overflow: hidden;
-      position: relative;
-      margin: 0;
-      padding: 0;
-    }
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #ffecf2;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
 
-    .container {
-      margin-top: 100px;
-      position: relative;
-      z-index: 2;
-    }
+.container {
+  margin-top: 100px;
+  position: relative;
+  z-index: 2;
+}
 
-    .pixelated-text {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 20px;
-    }
+.pixelated-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+}
 
-    .password-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-      position: relative;
-      z-index: 3;
-    }
+.password-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 3;
+}
 
-    .heart-box {
-      width: 50px;
-      height: 50px;
-      background-color: pink;
-      border: 2px solid red;
-      clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
-      font-size: 24px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding-top: 2px;
-      caret-color: transparent;
-    }
+.heart-box {
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+  border: 2px solid red;
+  clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  caret-color: transparent;
+  border-radius: 8px;
+}
 
-    .heart-box:focus {
-      outline: none;
-    }
+.heart-box:focus {
+  outline: none;
+}
 
-    .cloud-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 18px;
-      font-family: 'Press Start 2P', cursive;
-      background-color: lightblue;
-      border: 2px solid darkblue;
-      border-radius: 25px;
-      cursor: pointer;
-    }
+.cloud-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: lightblue;
+  border: 2px solid darkblue;
+  border-radius: 25px;
+  cursor: pointer;
+}
 
-    #hint {
-      margin-top: 10px;
-      font-size: 14px;
-      color: grey;
-    }
+#hint {
+  margin-top: 10px;
+  font-size: 14px;
+  color: grey;
+}
 
-    #error-message {
-      color: red;
-      font-size: 18px;
-      margin-top: 10px;
-      font-weight: bold;
-      display: none;
-    }
+#error-message {
+  color: red;
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+  display: none;
+}
 
-    .hidden {
-      display: none;
-    }
+.hidden {
+  display: none;
+}
 
-    .message-screen {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      min-height: 100vh;
-      background-color: #ffecf2;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
-      padding: 20px;
-      box-sizing: border-box;
-      overflow-y: auto;
-    }
+.message-screen {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffecf2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
 
-    .typewriter {
-      font-family: 'Courier New', monospace;
-      font-size: 20px;
-      white-space: pre-line;
-      overflow: hidden;
-      border-right: 2px solid black;
-    }
+.typewriter {
+  font-family: 'Courier New', monospace;
+  font-size: 20px;
+  white-space: pre-line;
+  overflow: hidden;
+  border-right: 2px solid black;
+}
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
+.heart {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 3cm);
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
+  animation: heartbeat 1s infinite alternate;
+  transition: transform 0.2s;
+}
 
-    @keyframes blink {
-      from, to { border-color: transparent; }
-      50% { border-color: black; }
-    }
+@keyframes heartbeat {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
 
-    .heart {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: calc(100% + 3cm);
-      width: 50px;
-      height: 50px;
-      background-color: red;
-      clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);
-      animation: heartbeat 1s infinite alternate;
-      transition: transform 0.2s;
-    }
+.heart:active {
+  animation: bounce 0.5s ease;
+}
 
-    @keyframes heartbeat {
-      from { transform: scale(1); }
-      to { transform: scale(1.2); }
-    }
-
-    .heart:active {
-      animation: bounce 0.5s ease;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.5); }
-    }
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+}
   </style>
 </head>
 <body>
