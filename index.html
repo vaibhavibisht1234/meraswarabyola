@@ -1,150 +1,160 @@
-<!DOCTYPE html> <html lang="en">  
+<!DOCTYPE html>
+<html lang="en">  
 <head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Happy Birthday Ritik</title>  
-    <link rel="stylesheet" href="styles.css">  
-    <style>  
-        body {  
-            font-family: Arial, sans-serif;  
-            text-align: center;  
-            background-color: #ffecf2;  
-            overflow: hidden;  
-            position: relative;  
-        }  
-        .container {  
-            margin-top: 100px;  
-            position: relative;  
-            z-index: 2;  
-        }  
-        .pixelated-text {  
-            font-family: 'Press Start 2P', cursive;  
-            font-size: 20px;  
-        }  
-        .password-container {  
-            display: flex;  
-            justify-content: center;  
-            gap: 10px;  
-            margin-top: 20px;  
-            position: relative;  
-            z-index: 3;  
-        }  
-        .heart-box {  
-            width: 50px;  
-            height: 50px;  
-            background-color: pink;  
-            border: 2px solid red;  
-            clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);  
-            text-align: center;  
-            font-size: 24px;  
-            font-weight: bold;  
-            line-height: 50px;  
-            display: flex;  
-            justify-content: center;  
-            align-items: center;  
-            caret-color: transparent;  
-        }  
-        .heart-box:focus {  
-            outline: none;  
-        }  
-        .cloud-button {  
-            margin-top: 20px;  
-            padding: 10px 20px;  
-            font-size: 18px;  
-            font-family: 'Press Start 2P', cursive;  
-            background-color: lightblue;  
-            border: 2px solid darkblue;  
-            border-radius: 25px;  
-            cursor: pointer;  
-        }  
-        #hint {  
-            margin-top: 10px;  
-            font-size: 14px;  
-            color: grey;  
-        }  
-        #error-message {  
-            color: red;  
-            font-size: 18px;  
-            margin-top: 10px;  
-            font-weight: bold;  
-            display: none;  
-        }  
-        .hidden {  
-            display: none;  
-        }  
-        .message-screen {  
-            display: none;  
-            position: fixed;  
-            top: 10px; left: 10px; text-align: left; position: absolute; top: 10px; left: 10px; width: 80%; white-space: pre; display: block;  
-            left: 0;  
-            width: 100%;  
-            height: 100%;  
-            background-color: #ffecf2;  
-            display: flex;  
-            justify-content: center;  
-            align-items: center;  
-            flex-direction: column;  
-        }  
-        .typewriter {  
-            font-family: 'Courier New', monospace;  
-            font-size: 20px;  
-            white-space: pre-line;  
-            overflow: hidden;  
-            border-right: 2px solid black;  
-        }  
-        @keyframes typing {  
-            from { width: 0; }  
-            to { width: 100%; }  
-        }  
-        @keyframes blink {  
-            from, to { border-color: transparent; }  
-            50% { border-color: black; }  
-        }  
-            .heart {  
-            position: absolute;  
-            left: 50%;  
-            transform: translateX(-50%);  
-            top: calc(100% + 3cm);  
-            width: 50px;  
-            height: 50px;  
-            background-color: red;  
-            clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);  
-            animation: heartbeat 1s infinite alternate;  
-            transition: transform 0.2s;  
-        }  
-        @keyframes heartbeat {  
-            from { transform: scale(1); }  
-            to { transform: scale(1.2); }  
-        }  
-        .heart:active {  
-            animation: bounce 0.5s ease;  
-        }  
-        @keyframes bounce {  
-            0%, 100% { transform: scale(1); }  
-            50% { transform: scale(1.5); }  
-        }  
-</style>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Happy Birthday Ritik</title>  
+  <style>  
+    body {  
+      font-family: Arial, sans-serif;  
+      text-align: center;  
+      background-color: #ffecf2;  
+      overflow-x: hidden;  
+      overflow-y: auto;  
+      position: relative;  
+      margin: 0;  
+      padding: 0;
+    }  
+    .container {  
+      margin-top: 100px;  
+      position: relative;  
+      z-index: 2;  
+    }  
+    .pixelated-text {  
+      font-family: 'Press Start 2P', cursive;  
+      font-size: 20px;  
+    }  
+    .password-container {  
+      display: flex;  
+      justify-content: center;  
+      gap: 10px;  
+      margin-top: 20px;  
+      position: relative;  
+      z-index: 3;  
+      flex-wrap: wrap;
+    }  
+    .heart-box {  
+      width: 50px;  
+      height: 50px;  
+      background-color: pink;  
+      border: 2px solid red;  
+      clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);  
+      text-align: center;  
+      font-size: 24px;  
+      font-weight: bold;  
+      line-height: 50px;  
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
+      caret-color: transparent;  
+    }  
+    .heart-box:focus {  
+      outline: none;  
+    }  
+    .cloud-button {  
+      margin-top: 20px;  
+      padding: 10px 20px;  
+      font-size: 18px;  
+      font-family: 'Press Start 2P', cursive;  
+      background-color: lightblue;  
+      border: 2px solid darkblue;  
+      border-radius: 25px;  
+      cursor: pointer;  
+    }  
+    #hint {  
+      margin-top: 10px;  
+      font-size: 14px;  
+      color: grey;  
+    }  
+    #error-message {  
+      color: red;  
+      font-size: 18px;  
+      margin-top: 10px;  
+      font-weight: bold;  
+      display: none;  
+    }  
+    .hidden {  
+      display: none;  
+    }  
+    .message-screen {  
+      display: none;  
+      position: absolute;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      min-height: 100vh;  
+      background-color: #ffecf2;  
+      padding: 20px;  
+      box-sizing: border-box;  
+      overflow-y: auto;  
+      display: flex;  
+      flex-direction: column;  
+      align-items: flex-start;  
+      justify-content: flex-start;  
+    }  
+    .typewriter {  
+      font-family: 'Courier New', monospace;  
+      font-size: 20px;  
+      white-space: pre-line;  
+      overflow: hidden;  
+      border-right: 2px solid black;  
+    }  
+    @keyframes heartbeat {  
+      from { transform: scale(1); }  
+      to { transform: scale(1.2); }  
+    }  
+    @keyframes bounce {  
+      0%, 100% { transform: scale(1); }  
+      50% { transform: scale(1.5); }  
+    }  
+    .heart {  
+      position: absolute;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      top: calc(100% + 3cm);  
+      width: 50px;  
+      height: 50px;  
+      background-color: red;  
+      clip-path: polygon(50% 15%, 61% 5%, 75% 5%, 88% 15%, 90% 30%, 85% 45%, 75% 60%, 50% 90%, 25% 60%, 15% 45%, 10% 30%, 12% 15%, 25% 5%, 39% 5%);  
+      animation: heartbeat 1s infinite alternate;  
+      transition: transform 0.2s;  
+    }  
+    .heart:active {  
+      animation: bounce 0.5s ease;  
+    }  
+    @media (max-width: 600px) {
+      .heart-box {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+    }
+  </style>  
 </head>  
 <body>  
-    <div class="container" id="passwordScreen">  
-        <p class="pixelated-text">Enter the password</p>  
-        <div class="password-container">  
-            <input type="password" id="password1" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password2')">  
-            <input type="password" id="password2" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password3')">  
-            <input type="password" id="password3" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password4')">  
-            <input type="password" id="password4" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password5')">  
-            <input type="password" id="password5" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password6')">  
-            <input type="password" id="password6" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password7')">  
-            <input type="password" id="password7" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password8')">  
-            <input type="password" id="password8" maxlength="1" class="heart-box" oninput="checkPassword()">  
-        </div>  
-        <p id="hint">Hint: Anniversary Date</p>  
-        <p id="error-message">Incorrect Password!!!</p>  
+  <div class="container" id="passwordScreen">  
+    <p class="pixelated-text">Enter the password</p>  
+    <div class="password-container">  
+      <input type="password" id="password1" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password2')">  
+      <input type="password" id="password2" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password3')">  
+      <input type="password" id="password3" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password4')">  
+      <input type="password" id="password4" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password5')">  
+      <input type="password" id="password5" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password6')">  
+      <input type="password" id="password6" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password7')">  
+      <input type="password" id="password7" maxlength="1" class="heart-box" oninput="moveToNext(this, 'password8')">  
+      <input type="password" id="password8" maxlength="1" class="heart-box" oninput="checkPassword()">  
     </div>  
-    <div class="message-screen" id="messageScreen">  
-        <p class="typewriter" id="typedMessage"></p>  
-    </div>  
-<script>  
+    <p id="hint">Hint: Anniversary Date</p>  
+    <p id="error-message">Incorrect Password!!!</p>  
+  </div>  
+
+  <div class="message-screen" id="messageScreen">  
+    <p class="typewriter" id="typedMessage"></p>  
+  </div>  
+
+  <div class="heart" id="heart" style="display: block;"></div>  
+
+  <script>  
     const message = `🌸💖🎂 Happiest Birthday to You, My Swane!!! 🎂💖🌸 Maine life mai kabhi nahi socha tha ki mujhe kabhi kisi se itna pyaar hoga, jitna mujhe tumse hua hai.
 1st March, 2025, jab hum officially ek hue the, aur maine tumhe apna pati maan liya tha,
 wo meri life ka best decision tha, hai aur humesha rahega.
@@ -170,59 +180,48 @@ I love you soo sooo sooooo much jaanu.
 Bahut jyada pyaar karti hu tumse, bahut he jyada
 mera baccha, mera kutchu putchu, mera roshogulla, mera rasmalai, mera gulab jamun.💕🍥🍯🎂
 
-🌟💞 Tum ho meri duniya, meri jaan, meri zindagi ka sabse pyaara hissa. 💞🌟
-`;
+🌟💞 Tum ho meri duniya, meri jaan, meri zindagi ka sabse pyaara hissa. 💞🌟`;
 
-function typeMessage() {  
-    let index = 0;  
-    const speed = 35; // Adjust typing speed  
-    function type() {  
+    function typeMessage() {  
+      let index = 0;  
+      const speed = 35;  
+      function type() {  
         if (index < message.length) {  
-            document.getElementById("typedMessage").style.display = 'block';
-
-document.getElementById("typedMessage").style.position = 'absolute';
-document.getElementById("typedMessage").style.top = '10px';
-document.getElementById("typedMessage").style.left = '10px';
-document.getElementById("typedMessage").innerHTML += message.charAt(index);
-index++;
-setTimeout(type, speed);
-}
-}
-type();
-}
-
-function checkPassword() {  
-    let password = '';  
-    for (let i = 1; i <= 8; i++) {  
-        password += document.getElementById('password' + i).value;  
+          document.getElementById("typedMessage").innerHTML += message.charAt(index);  
+          index++;  
+          setTimeout(type, speed);  
+        }  
+      }  
+      type();  
     }  
-    if (password === "01032025") {  
+
+    function checkPassword() {  
+      let password = '';  
+      for (let i = 1; i <= 8; i++) {  
+        password += document.getElementById('password' + i).value;  
+      }  
+      if (password === "01032025") {  
         document.getElementById("passwordScreen").style.display = "none";  
         document.getElementById("messageScreen").style.display = "flex";  
         document.getElementById("heart").style.display = "none";  
         typeMessage();  
-    } else {  
+      } else {  
         document.getElementById("error-message").style.display = "block";  
         setTimeout(() => {  
-            document.getElementById("error-message").style.display = "none";  
-            for (let i = 1; i <= 8; i++) {  
-                document.getElementById('password' + i).value = '';  
-            }  
-            document.getElementById('password1').focus();  
+          document.getElementById("error-message").style.display = "none";  
+          for (let i = 1; i <= 8; i++) {  
+            document.getElementById('password' + i).value = '';  
+          }  
+          document.getElementById('password1').focus();  
         }, 1000);  
+      }  
     }  
-}  
-function moveToNext(current, nextFieldId) {  
-    if (current.value.length === 1) {  
-        document.getElementById(nextFieldId)?.focus();  
-    }  
-}  
-  
-function hideHeart() {  
-    document.getElementById("heart").style.display = "none";  
-}
 
-</script>  
-    <div class="heart" id="heart" style="display: block;" style="position: absolute; left: 50%; transform: translateX(-50%); top: calc(100% + 3cm);"></div>  
+    function moveToNext(current, nextFieldId) {  
+      if (current.value.length === 1) {  
+        document.getElementById(nextFieldId)?.focus();  
+      }  
+    }  
+  </script>  
 </body>  
 </html>
